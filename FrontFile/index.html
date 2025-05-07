@@ -11,22 +11,17 @@
     function validateForm() {
       var response = document.getElementById("g-recaptcha-response").value;
 
-      // Проверка на заполненность капчи
       if (!response || response.trim() === "") {
         alert("Пожалуйста, пройдите капчу!");
-        return false; // Не отправлять форму, если капча не пройдена
       }
       
-      // Проверка на заполненность всех обязательных полей
       var requiredFields = document.querySelectorAll('input[required]');
       for (var i = 0; i < requiredFields.length; i++) {
         if (requiredFields[i].value.trim() === "") {
           alert("Пожалуйста, заполните все поля!");
-          return false; // Не отправлять форму, если какое-то поле не заполнено
         }
       }
       
-      return true; // Отправить форму, если капча пройдена и все поля заполнены
     }
 
     function timestamp() {
