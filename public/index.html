@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Заявка на продукт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js">fire</script>
+  <script>
+    function timestamp() {
+      var response = document.getElementById("g-recaptcha-response");
+      if (response == null || response.value.trim() === "") {
+        var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+        elems["ts"] = JSON.stringify(new Date().getTime());
+        document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+      }
+    }
+    setInterval(timestamp, 500);
+  </script>
+  <!-- Добавьте это скрытое поле для названия продукта -->
+<!-- Добавьте скрытое поле с указанным ID -->
+
+
+  <style>
+    body {
+      background-color: #f9fafb;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .g-recaptcha {
+      margin-top: 20px;
+    }
+
+    input[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #0070d2;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWU00000NTZQ9" method="POST">
+    <input type="hidden" name="captcha_settings" value='{"keyname":"Alex23","fallback":"true","orgId":"00DWU00000NTZQ9","ts":""}'>
+    <input type="hidden" name="oid" value="00DWU00000NTZQ9">
+    <input type="hidden" name="retURL" value="https://creative-hawk-owh1eh-dev-ed.trailblaze.my.salesforce-sites.com/">
+
+    <label for="first_name">Имя</label>
+    <input id="first_name" maxlength="40" name="first_name" type="text" required>
+
+    <label for="last_name">Фамилия</label>
+    <input id="last_name" maxlength="80" name="last_name" type="text" required>
+
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" type="text" required>
+
+    <label for="company">Компания</label>
+    <input id="company" maxlength="40" name="company" type="text">
+    <input type="hidden" id="product_name" name="00NWU00000aQzpV"> <!-- Внутри формы! -->
+    <label for="00NWU00000cO8TB">Продукт</label>
+    <select id="00NWU00000cO8TB" name="00NWU00000cO8TB" required>
+      <option value="">Выберите продукт</option>
+      <option value="VAG010A2">Carpets Skoda (VAG010A2)</option>
+      <option value="VAG009A1">Carpets Volkswagen (VAG009A1)</option>
+      <option value="VAG008E5">CFNB (VAG008E5)</option>
+      <option value="VAG007E4">CFNA (VAG007E4)</option>
+      <option value="VAG006E3">CWVA (VAG006E3)</option>
+      <option value="VAG005E2">CFW (VAG005E2)</option>
+      <option value="VAG004E1">CZCA (VAG004E1)</option>
+      <option value="VAG003C3">Skoda Rapid (VAG003C3)</option>
+      <option value="VAG002C2">Volkswagen Polo 2021 (VAG002C2)</option>
+      <option value="VAG001C1">Volkswagen Polo Sedan (VAG001C1)</option>
+      <option value="SL9080">SLA: Platinum (SL9080)</option>
+      <option value="SL9060">SLA: Gold (SL9060)</option>
+      <option value="SL9040">SLA: Silver (SL9040)</option>
+      <option value="SL9020">SLA: Bronze (SL9020)</option>
+      <option value="R008A1">Carpets Renault (R008A1)</option>
+      <option value="R007E3">H4M (R007E3)</option>
+      <option value="R006E2">K4M (R006E2)</option>
+      <option value="R005E1">K7M (R005E1)</option>
+      <option value="R004C4">Renault Sandero Stepway (R004C4)</option>
+      <option value="R003C3">Renault Sandero (R003C3)</option>
+      <option value="R002C2">Renault Logan Stepway (R002C2)</option>
+      <option value="R001C1">Renault Logan (R001C1)</option>
+      <option value="MI001A1">Phone holder Xiaomi (MI001A1)</option>
+      <option value="L005A1">Carpets Lada (L005A1)</option>
+      <option value="L004E2">VAZ-21129 (L004E2)</option>
+      <option value="L003E1">VAZ-21179 (L003E1)</option>
+      <option value="L002C2">Lada Xray (L002C2)</option>
+      <option value="L001C1">Lada Vesta (L001C1)</option>
+      <option value="IN7080">Installation: Industrial - High (IN7080)</option>
+      <option value="IN7060">Installation: Industrial - Medium (IN7060)</option>
+      <option value="IN7040">Installation: Industrial - Low (IN7040)</option>
+      <option value="IN7020">Installation: Portable (IN7020)</option>
+      <option value="HK008A2">Carpets Kia (HK008A2)</option>
+      <option value="HK007A1">Carpets Hyundai (HK007A1)</option>
+      <option value="HK006E2">G4FG (HK006E2)</option>
+      <option value="HK005E1">G4LC (HK005E1)</option>
+      <option value="HK004C4">Hyundai Solaris (HK004C4)</option>
+      <option value="HK003C3">Hyundai Accent (HK003C3)</option>
+      <option value="HK002C2">Kia Rio X-Line (HK002C2)</option>
+      <option value="HK001C1">Kia Rio (HK001C1)</option>
+      <option value="GC5060">GenWatt Gasoline 2000kW (GC5060)</option>
+      <option value="GC5040">GenWatt Gasoline 750kW (GC5040)</option>
+      <option value="GC5020">GenWatt Gasoline 300kW (GC5020)</option>
+      <option value="GC3060">GenWatt Propane 1500kW (GC3060)</option>
+      <option value="GC3040">GenWatt Propane 500kW (GC3040)</option>
+      <option value="GC3020">GenWatt Propane 100kW (GC3020)</option>
+      <option value="GC1060">GenWatt Diesel 1000kW (GC1060)</option>
+      <option value="GC1040">GenWatt Diesel 200kW (GC1040)</option>
+      <option value="GC1020">GenWatt Diesel 10kW (GC1020)</option>
+    </select>
+
+    <label for="phone">Телефон</label>
+    <input id="phone" maxlength="40" name="phone" type="text" required>
+
+    <div class="g-recaptcha" data-sitekey="6LfWhzArAAAAAItrTinwA-v66OlTU7fmmxDKoehY"></div>
+    <input type="submit" name="submit" value="Отправить">
+  </form>
+ 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const productSelect = document.getElementById('00NWU00000cO8TB'); // Ваш текущий список
+const productNameField = document.getElementById('product_name'); // Ссылка на скрытое поле
+
+productSelect.addEventListener('change', function() {
+const selectedOption = this.options[this.selectedIndex];
+if (selectedOption.value !== "") {
+ // Извлекаем название продукта (часть до скобки)
+ const productName = selectedOption.text.split('(')[0].trim();
+ productNameField.value = productName; // Записываем в скрытое поле
+} else {
+ productNameField.value = '';
+}
+});
+});
+</script>
+</body>
+</html>
