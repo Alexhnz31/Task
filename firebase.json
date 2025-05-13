@@ -1,6 +1,10 @@
 {
   "hosting": {
+<<<<<<< HEAD
     "public": "public",
+=======
+    "public": "FrontFile",
+>>>>>>> 1e01259585eb139e3c32901027abd222c5567eaa
     "ignore": [
       "firebase.json",
       "**/.*",
